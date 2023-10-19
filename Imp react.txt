@@ -1,0 +1,119 @@
+///// Alert Button /////////////
+ ///Class Component///
+
+import React, { Component } from 'react';
+
+class ButtonClick extends Component {
+  handleClick() {
+    alert('Button clicked!');
+  }
+
+  render() {
+    return <button onClick={this.handleClick.bind(this)}>Click me</button>;
+  }
+}
+
+export default ButtonClick;
+
+////// Alert button Function component/////
+import React from 'react';
+
+function ButtonClick() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
+
+  return <button onClick={handleClick}>Click me</button>;
+}
+
+export default ButtonClick;
+
+
+/////////////////
+
+
+ import React from "react";
+ function App() {
+  const names = ["Brian", "Paul", "Krug", "Halley"];
+   const listItems = names.map((name) => <li>{name}</li>);
+   return <ul>{listItems}</ul>;
+}
+export default App;
+////////////////////////////
+
+////Counter Increment///////
+
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const incrementCounter = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+///////////////////su of two No.///////////////////
+
+import React from 'react';
+
+// Child component to calculate and display the sum
+const SumCalculator = (props) => {
+  // Destructuring props to get the numbers
+  const { number1, number2 } = props;
+
+  // Function to calculate the sum
+  const calculateSum = () => {
+    const sum = number1 + number2;
+    alert(`Sum of ${number1} and ${number2} is: ${sum}`);
+  };
+
+  return (
+    <div>
+      <h2>Sum Calculator</h2>
+      <p>Number 1: {number1}</p>
+      <p>Number 2: {number2}</p>
+      <button onClick={calculateSum}>Calculate Sum</button>
+    </div>
+  );
+};
+
+// Parent component
+const App = () => {
+  const number1 = 5;
+  const number2 = 7;
+
+  return (
+    <div>
+      <h1>React Sum Example</h1>
+      {/* Passing numbers as props to SumCalculator */}
+      <SumCalculator number1={number1} number2={number2} />
+    </div>
+  );
+};
+
+export default App;
+
+//////////////////////////////
+
+function additionFunction(a, b) { 
+	return a + b; 
+} 
+
+let num1 = 5; 
+let num2 = 10; 
+let sum = additionFunction(num1, num2); 
+console.log("Sum of given numbers is :", sum);
+
+///////////////////////
+
+

@@ -1,0 +1,288 @@
+// App.js
+//How to render an array of objects in ReactJS ?
+
+
+import React from "react";
+import "./App.css";
+
+function RenderingArrayOfObjects() {
+	const data = [
+		{
+			State: "Uttar Pradesh",
+			Capital: "Lucknow",
+		},
+		{
+			State: "Gujarat",
+			Capital: "Gandhinagar",
+		},
+		{
+			State: "Karnataka",
+			Capital: "Bengaluru",
+		},
+		{
+			State: "Punjab",
+			Capital: "Chandigarh",
+		},
+		{
+			State: "Maharashtra",
+			Capital: "Mumbai",
+		},
+	];
+	const listItems = data.map((element) => {
+		return (
+			<ul type="disc" className="item">
+				<li
+					style={{
+						fontWeight: "bold",
+						color: "blue",
+					}}
+				>
+					{element.State}
+				</li>
+				<li>{element.Capital}</li>
+			</ul>
+		);
+	});
+	return <div className="container">{listItems}</div>;
+}
+function App() {
+	return (
+		<div className="App">
+			<div>
+				<h1 className="geeks">GeeksforGeeks</h1>
+				<h3>Rendering Array of Objects</h3>
+				<br></br>
+				<RenderingArrayOfObjects />
+			</div>
+		</div>
+	);
+}
+
+export default App;
+
+
+/////////////////////////////////////////////////////////
+
+// App.js
+
+import React from "react";
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+
+// Render a table
+function RenderingArrayOfObjects() {
+	const data = [
+		{
+			Name: "Nikita",
+			Marks: "98",
+			Phone: "123",
+		},
+		{
+			Name: "Pratiksha",
+			Marks: "96",
+			Phone: "127",
+		},
+		{
+			Name: "Muskan",
+			Marks: "97",
+			Phone: "163",
+		},
+		{
+			Name: "Nishi",
+			Marks: "95",
+			Phone: "193",
+		},
+		{
+			Name: "Himanshu",
+			Marks: "78",
+			Phone: "120",
+		},
+	];
+	// Render rows/items
+	const tableRows = data.map((element) => {
+		return (
+			<tr className="items">
+				<td>{element.Name}</td>
+				<td>{element.Marks}</td>
+				<td>{element.Phone}</td>
+			</tr>
+		);
+	});
+	return (
+		<div className="container">
+			<Table hover>
+				<thead>
+					<tr>
+						<th> Name</th>
+						<th>Marks</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<tbody>{tableRows}</tbody>
+			</Table>
+		</div>
+	);
+}
+function App() {
+	return (
+		<div className="App">
+			<div>
+				<h1 className="geeks">GeeksforGeeks</h1>
+				<h3>Rendering Array of Objects</h3>
+
+				<br></br>
+				<RenderingArrayOfObjects />
+			</div>
+		</div>
+	);
+}
+
+export default App;
+/////////////////////////////////////////
+
+ import React from "react";
+ function App() {
+  const names = ["Brian", "Paul", "Krug", "Halley"];
+   const listItems = names.map((name) => <li>{name}</li>);
+   return <ul>{listItems}</ul>;
+}
+export default App;
+
+////////////////user input text field////////////////
+
+function App() {
+  const [value, setValue] = useState("");
+ function handleChange(event) {
+	setValue(event.target.value);
+  }
+ 
+  return (
+	<div>
+  	<input type="text" value={value} onChange={handleChange} />
+  	<p>You entered: {value}</p>
+	</div>
+  );
+}
+///////////////////5 tak print 2 of table///////////////////	
+
+import React, { useMemo } from "react";
+ function App() {
+  const numbers = [1, 2, 3, 4, 5];
+  const doubledNumbers = useMemo(() => numbers.map((n) => n * 2), []);
+ return (
+	<div>
+  	{doubledNumbers.map((number) => (
+    	<p key={number}>{number}</p>
+  	))}
+	</div>
+  );
+}
+ 
+export default App;
+
+///////////////// Count Increment //////////////////
+
+import React, { useState } from "react"
+function App() {
+  const [count, setCount] = useState(0)
+
+  const increment = () => {
+    setCount(count + 1)
+  }
+  return (
+    <div>
+      <button onClick={increment}>Increment</button>
+      <p>Count: {count}</p>
+    </div>
+  )
+}
+export default App
+
+
+////////////// counter Increment/////
+
+
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const incrementCounter = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={incrementCounter}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+
+
+////////////////// Form Create React////////////
+
+function App() {
+  return (
+    <div className="App">
+      <form>
+        <div>
+          Name:<input
+            name='name'
+            placeholder='Name'
+          />
+          Age:<input
+            name='age'
+            placeholder='Age'
+          />
+        </div>
+      </form>
+    </div>
+  );
+}
+export default App
+
+
+
+/////Functional Component///////
+import React from 'react';
+function Hello(props){
+  return <h1 align="center">Hello,{props.name}!</h1>;
+}
+export default Hello;
+
+////Class Component////////////////
+
+import React, {Component} from 'react';
+class Hello extends Component {
+  render()
+  { 
+  return <h1 align="center">Hello,{this.props.name}!</h1>;
+  }
+}
+export default Hello;
+
+//////////////////////////////////////////////////
+
+import React from 'react'; 
+import ReactDOM from 'react-dom'; 
+
+const numbers = [1,2,3,4,5]; 
+
+const updatedNums = numbers.map((number)=>{ 
+	return <li>{number}</li>; 
+}); 
+
+ReactDOM.render( 
+	<ul> 
+		{updatedNums} 
+	</ul>, 
+	document.getElementById('root') 
+);
+
+
+
